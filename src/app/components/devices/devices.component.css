@@ -1,5 +1,6 @@
 .devices {
   display: flex;
+  justify-content: center;
 }
 
 ul:before{
@@ -29,6 +30,11 @@ ul {
 .offline {
   color: #e94f37;
   margin-right: 0.5em;
+}
+
+
+.card {
+  margin: 1em;
 }
 
 .device-name {

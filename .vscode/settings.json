@@ -1,0 +1,7 @@
+{
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+    "workbench.preferredHighContrastColorTheme": "Monokai",
+    "workbench.preferredLightColorTheme": "Visual Studio Dark"
+}

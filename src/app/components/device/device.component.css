@@ -1,0 +1,22 @@
+.card {
+  margin: 1em;
+  max-width: 600px;
+}
+
+.online {
+  color: #44bba4;
+}
+
+.offline {
+  color: #e94f37;
+}
+
+.refresh-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+table {
+  width: 100%;
+}

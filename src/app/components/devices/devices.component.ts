@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from 'src/app/services/device.service';
-import {GetDevicesResponse} from 'src/app/models/responses/get-devices.response.model';
-import {Device} from 'src/app/models/device.model';
+import { GetDevicesResponse } from 'src/app/models/responses/get-devices.response.model';
+import { Device } from 'src/app/models/device.model';
+import { IconService } from 'src/app/services/icon.service';
 
 @Component({
   selector: 'app-devices',
@@ -18,7 +19,7 @@ export class DevicesComponent implements OnInit {
   wifiDevicesOnline: any;
   wifiDevicesOffline: any;
 
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService, private iconService: IconService) { }
 
   ngOnInit(): void {
     this.deviceService.getAll().subscribe( (data: GetDevicesResponse) => {
@@ -26,41 +27,7 @@ export class DevicesComponent implements OnInit {
       console.log('Devices:', this.devices);
 
       this.devices.forEach(device => {
-
-        switch(device.DeviceType) {
-          case 'HomePlug':
-            device.Icon = 'power';
-            break;
-          case 'homelive':
-            device.Icon = 'rss_feed';
-            break;
-          case 'smartphone':
-            device.Icon = 'smartphone';
-            break;
-          case 'tablet':
-          case 'tablette':
-            device.Icon = 'tablet_android';
-            break;
-          case 'tv':
-            device.Icon = 'tv';
-            break;
-          case 'Computer':
-          case 'computer':
-            device.Icon = 'desktop_windows';
-            break;
-          case 'laptop':
-            device.Icon = 'laptop';
-            break;
-          case 'GameConsole':
-            device.Icon = 'sports_esports';
-            break;
-          case 'WiFi Bridge':
-            device.Icon = 'router';
-            break;
-          default:
-            device.Icon = 'device_unknown';
-        }
-
+        device.Icon = this.iconService.get(device.DeviceType);
       });
 
       this.devices.sort((a, b) => {
