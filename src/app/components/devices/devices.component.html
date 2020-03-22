@@ -1,0 +1,63 @@
+<div class="devices">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Réseau local filaire</mat-card-title>
+    </mat-card-header>    
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-action-list *ngFor="let device of ethernetDevicesOnline" >
+        <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">
+          <mat-icon [ngClass]="{true:'online', false:'offline'}[device.Active]">{{device.Icon}}</mat-icon>
+          <div>
+            <div class="device-name">{{device.Name}}</div>
+            <div class="device-adress">{{device.PhysAddress}} - {{device.IPAddress}}</div>
+          </div>
+        </button>
+      </mat-action-list>
+    </mat-card-content>
+    <mat-card-content>      
+      <mat-divider></mat-divider>
+      <mat-action-list *ngFor="let device of ethernetDevicesOffline">
+        <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">
+          <mat-icon [ngClass]="{true:'online', false:'offline'}[device.Active]">{{device.Icon}}</mat-icon>
+          <div>
+            <div class="device-name">{{device.Name}}</div>
+            <div class="device-adress">{{device.PhysAddress}}</div>
+          </div>
+        </button>
+      </mat-action-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Réseau sans fil</mat-card-title>
+    </mat-card-header>    
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-action-list *ngFor="let device of wifiDevicesOnline">
+        <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">
+          <mat-icon [ngClass]="{true:'online', false:'offline'}[device.Active]">{{device.Icon}}</mat-icon>
+          <div>
+            <div class="device-name">{{device.Name}}</div>
+            <div class="device-adress">{{device.PhysAddress}} - {{device.IPAddress}}</div>
+          </div>
+        </button>
+      </mat-action-list>
+    </mat-card-content>
+    <mat-card-content>      
+      <mat-divider></mat-divider>
+      <mat-action-list *ngFor="let device of wifiDevicesOffline">
+        <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">
+          <mat-icon [ngClass]="{true:'online', false:'offline'}[device.Active]">{{device.Icon}}</mat-icon>
+          <div>
+            <div class="device-name">{{device.Name}}</div>
+            <div class="device-adress">{{device.PhysAddress}}</div>
+          </div>
+        </button>
+      </mat-action-list>
+    </mat-card-content>
+  </mat-card>
+
+</div>

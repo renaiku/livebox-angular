@@ -1,0 +1,41 @@
+.devices {
+  display: flex;
+}
+
+ul:before{
+  content:attr(aria-label);
+  font-size:120%;
+  font-weight:bold;
+  margin-left:-15px;
+}
+
+ul {
+  border: 1px solid black;
+}
+
+.ethernet {
+  /* background-color: blue; */
+}
+
+.wifi {
+  /* background-color: yellow; */
+}
+
+.online {
+  color: #44bba4;
+  margin-right: 0.5em;
+}
+
+.offline {
+  color: #e94f37;
+  margin-right: 0.5em;
+}
+
+.device-name {
+
+}
+
+.device-adress {
+  color: lightgray;
+  font-size: xx-small;
+}
