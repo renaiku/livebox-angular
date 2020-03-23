@@ -29,29 +29,59 @@ export class DeviceComponent implements OnInit {
     this.macAdress = this.route.snapshot.paramMap.get('mac');
 
     this.deviceService.get(this.macAdress).subscribe( (data: GetDevicesResponse) => {
+
       this.device = data.status;
-      this.device.DHCPName = this.device.Names.find(element => element.Source === 'dhcp').Name;
-      this.device.Icon = this.iconService.get(this.device.DeviceType);
-
-      // MAC adress
-      this.dataSource.push({
-        label: 'MAC Address',
-        value: this.device.PhysAddress
-      });
-
-      // IPAddress
-      this.dataSource.push({
-        label: 'IP Address',
-        value: this.device.IPAddress
-      });
-
-      // Interface
-      this.dataSource.push({
-        label: 'Interface',
-        value: this.device.InterfaceName
-      });
 
       console.log('Device:', this.device);
+
+      this.device.DHCPName = this.device.Names
+        ? this.device.Names.find(element => element.Source === 'dhcp')?.Name
+        : undefined;
+
+      console.log('Device.DHCPName setted to:', this.device.DHCPName);
+
+      this.device.Icon = this.iconService.get(this.device.DeviceType);
+
+      if (this.device.DHCPName) {
+        // MAC adress
+        if (this.device.PhysAddress) {
+          this.dataSource.push({
+            key: 'PhysAddress',
+            label: 'MAC Address',
+            value: this.device.PhysAddress
+          });
+        }
+
+        // IPAddress
+        if (this.device.IPAddress) {
+          this.dataSource.push({
+            key: 'IPAddress',
+            label: 'IP Address',
+            value: this.device.IPAddress
+          });
+        }
+
+        // Interface
+        if (this.device.InterfaceName) {
+          this.dataSource.push({
+            key: 'InterfaceName',
+            label: 'Interface',
+            value: this.device.InterfaceName
+          });
+        }
+      } else {
+
+        for (let [key, value] of Object.entries(this.device)) {
+          this.dataSource.push({
+            key: key,
+            label: key,
+            value: value
+          });
+        }
+
+      }
+
+
     });
 
   }

@@ -3,7 +3,7 @@
   <mat-card class="card">
     <mat-card-header>
       <mat-card-title>Réseau local filaire</mat-card-title>
-    </mat-card-header>    
+    </mat-card-header>
     <mat-card-content>
       <mat-divider></mat-divider>
       <mat-action-list *ngFor="let device of ethernetDevicesOnline" >
@@ -16,7 +16,7 @@
         </button>
       </mat-action-list>
     </mat-card-content>
-    <mat-card-content>      
+    <mat-card-content>
       <mat-divider></mat-divider>
       <mat-action-list *ngFor="let device of ethernetDevicesOffline">
         <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">
@@ -33,7 +33,7 @@
   <mat-card class="card">
     <mat-card-header>
       <mat-card-title>Réseau sans fil</mat-card-title>
-    </mat-card-header>    
+    </mat-card-header>
     <mat-card-content>
       <mat-divider></mat-divider>
       <mat-action-list *ngFor="let device of wifiDevicesOnline">
@@ -46,7 +46,7 @@
         </button>
       </mat-action-list>
     </mat-card-content>
-    <mat-card-content>      
+    <mat-card-content>
       <mat-divider></mat-divider>
       <mat-action-list *ngFor="let device of wifiDevicesOffline">
         <button mat-list-item (click)="goToDevicePage()" routerLink="/device/{{device.PhysAddress}}">

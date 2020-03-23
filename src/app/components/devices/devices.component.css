@@ -3,25 +3,6 @@
   justify-content: center;
 }
 
-ul:before{
-  content:attr(aria-label);
-  font-size:120%;
-  font-weight:bold;
-  margin-left:-15px;
-}
-
-ul {
-  border: 1px solid black;
-}
-
-.ethernet {
-  /* background-color: blue; */
-}
-
-.wifi {
-  /* background-color: yellow; */
-}
-
 .online {
   color: #44bba4;
   margin-right: 0.5em;
@@ -32,13 +13,13 @@ ul {
   margin-right: 0.5em;
 }
 
-
 .card {
   margin: 1em;
+  flex-grow: 1;
 }
 
-.device-name {
-
+.card:first-child {
+  margin-right: 0;
 }
 
 .device-adress {

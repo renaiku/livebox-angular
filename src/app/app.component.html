@@ -1,3 +1,25 @@
-<mat-toolbar class="toolbar">{{ title }}</mat-toolbar>
+<mat-sidenav-container fullscreen>
 
-<router-outlet></router-outlet>
+  <mat-sidenav mode="side" opened class="nav-menu">
+
+    <button class="home-button" routerLink="/">livebox</button>
+
+    <mat-nav-list>
+
+      <mat-list-item routerLink="/devices">
+         <button mat-icon-button><mat-icon class="nav-icon">device_unknown</mat-icon>Devices</button>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/about">
+        <button mat-icon-button><mat-icon class="nav-icon">info</mat-icon>About</button>
+     </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
